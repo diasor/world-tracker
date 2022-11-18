@@ -1,0 +1,116 @@
+[
+  {
+    "Year": 2021,
+    "TotalPopulation": "3.5330",
+    "GrowthRate": "0.0383",
+    "Density": "0.2903"
+  },
+  {
+    "Year": 2020,
+    "TotalPopulation": "3.4800",
+    "GrowthRate": "0.0305",
+    "Density": "0.2859"
+  },
+  {
+    "Year": 2019,
+    "TotalPopulation": "3.3770",
+    "GrowthRate": "0.0442",
+    "Density": "0.2775"
+  },
+  {
+    "Year": 2018,
+    "TotalPopulation": "3.2340",
+    "GrowthRate": "0.0541",
+    "Density": "0.2657"
+  },
+  {
+    "Year": 2017,
+    "TotalPopulation": "3.0680",
+    "GrowthRate": "0.0478",
+    "Density": "0.2521"
+  },
+  {
+    "Year": 2016,
+    "TotalPopulation": "2.9280",
+    "GrowthRate": "0.0332",
+    "Density": "0.2406"
+  },
+  {
+    "Year": 2015,
+    "TotalPopulation": "2.8340",
+    "GrowthRate": "-0.0047",
+    "Density": "0.2329"
+  },
+  {
+    "Year": 2010,
+    "TotalPopulation": "2.9010",
+    "GrowthRate": "-0.0023",
+    "Density": "0.2384"
+  },
+  {
+    "Year": 2005,
+    "TotalPopulation": "2.9350",
+    "GrowthRate": "0.0030",
+    "Density": "0.2412"
+  },
+  {
+    "Year": 2000,
+    "TotalPopulation": "2.8920",
+    "GrowthRate": "0.0304",
+    "Density": "0.2376"
+  },
+  {
+    "Year": 1995,
+    "TotalPopulation": "2.4900",
+    "GrowthRate": "0.0467",
+    "Density": "0.2046"
+  },
+  {
+    "Year": 1990,
+    "TotalPopulation": "1.9820",
+    "GrowthRate": "0.0139",
+    "Density": "0.1629"
+  },
+  {
+    "Year": 1985,
+    "TotalPopulation": "1.8500",
+    "GrowthRate": "-0.0004",
+    "Density": "0.1520"
+  },
+  {
+    "Year": 1980,
+    "TotalPopulation": "1.8540",
+    "GrowthRate": "-0.0052",
+    "Density": "0.1523"
+  },
+  {
+    "Year": 1975,
+    "TotalPopulation": "1.9030",
+    "GrowthRate": "-0.0091",
+    "Density": "0.1564"
+  },
+  {
+    "Year": 1970,
+    "TotalPopulation": "1.9920",
+    "GrowthRate": "-0.0084",
+    "Density": "0.1637"
+  },
+  {
+    "Year": 1965,
+    "TotalPopulation": "2.0780",
+    "GrowthRate": "-0.0068",
+    "Density": "0.1708"
+  },
+  {
+    "Year": 1960,
+    "TotalPopulation": "2.1500",
+    "GrowthRate": "-0.0050",
+    "Density": "0.1767"
+  },
+  {
+    "Year": 1955,
+    "TotalPopulation": "2.2040",
+    "GrowthRate": "-0.0049",
+    "Density": "0.1811"
+  }
+]

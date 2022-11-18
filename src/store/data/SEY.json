@@ -1,0 +1,154 @@
+[
+  {
+    "Year": 2021,
+    "TotalPopulation": "98.9080",
+    "GrowthRate": "0.0066",
+    "Density": "215.0174",
+    "TotalPopulationRank": 200,
+    "DensityRank": 68
+  },
+  {
+    "Year": 2020,
+    "TotalPopulation": "98.3470",
+    "GrowthRate": "0.0062",
+    "Density": "213.7978",
+    "TotalPopulationRank": 200,
+    "DensityRank": 69
+  },
+  {
+    "Year": 2019,
+    "TotalPopulation": "97.7390",
+    "GrowthRate": "0.0066",
+    "Density": "212.4761",
+    "TotalPopulationRank": 200,
+    "DensityRank": 69
+  },
+  {
+    "Year": 2018,
+    "TotalPopulation": "97.0960",
+    "GrowthRate": "0.0070",
+    "Density": "211.0783",
+    "TotalPopulationRank": 200,
+    "DensityRank": 69
+  },
+  {
+    "Year": 2017,
+    "TotalPopulation": "96.4180",
+    "GrowthRate": "0.0074",
+    "Density": "209.6044",
+    "TotalPopulationRank": 200,
+    "DensityRank": 67
+  },
+  {
+    "Year": 2016,
+    "TotalPopulation": "95.7100",
+    "GrowthRate": "0.0077",
+    "Density": "208.0652",
+    "TotalPopulationRank": 200,
+    "DensityRank": 67
+  },
+  {
+    "Year": 2015,
+    "TotalPopulation": "94.9780",
+    "GrowthRate": "0.0080",
+    "Density": "206.4739",
+    "TotalPopulationRank": 200,
+    "DensityRank": 66
+  },
+  {
+    "Year": 2010,
+    "TotalPopulation": "91.2640",
+    "GrowthRate": "0.0058",
+    "Density": "198.4000",
+    "TotalPopulationRank": 200,
+    "DensityRank": 62
+  },
+  {
+    "Year": 2005,
+    "TotalPopulation": "88.6480",
+    "GrowthRate": "0.0182",
+    "Density": "192.7130",
+    "TotalPopulationRank": 200,
+    "DensityRank": 60
+  },
+  {
+    "Year": 2000,
+    "TotalPopulation": "80.9960",
+    "GrowthRate": "0.0111",
+    "Density": "176.0783",
+    "TotalPopulationRank": 200,
+    "DensityRank": 61
+  },
+  {
+    "Year": 1995,
+    "TotalPopulation": "76.6490",
+    "GrowthRate": "0.0167",
+    "Density": "166.6283",
+    "TotalPopulationRank": 200,
+    "DensityRank": 59
+  },
+  {
+    "Year": 1990,
+    "TotalPopulation": "70.5700",
+    "GrowthRate": "0.0023",
+    "Density": "153.4130",
+    "TotalPopulationRank": 199,
+    "DensityRank": 61
+  },
+  {
+    "Year": 1985,
+    "TotalPopulation": "69.7750",
+    "GrowthRate": "0.0104",
+    "Density": "151.6848",
+    "TotalPopulationRank": 199,
+    "DensityRank": 61
+  },
+  {
+    "Year": 1980,
+    "TotalPopulation": "66.2440",
+    "GrowthRate": "0.0214",
+    "Density": "144.0087",
+    "TotalPopulationRank": 198,
+    "DensityRank": 61
+  },
+  {
+    "Year": 1975,
+    "TotalPopulation": "59.5850",
+    "GrowthRate": "0.0262",
+    "Density": "129.5326",
+    "TotalPopulationRank": 199,
+    "DensityRank": 62
+  },
+  {
+    "Year": 1970,
+    "TotalPopulation": "52.3680",
+    "GrowthRate": "0.0228",
+    "Density": "113.8435",
+    "TotalPopulationRank": 201,
+    "DensityRank": 64
+  },
+  {
+    "Year": 1965,
+    "TotalPopulation": "46.7820",
+    "GrowthRate": "0.0237",
+    "Density": "101.7000",
+    "TotalPopulationRank": 202,
+    "DensityRank": 66
+  },
+  {
+    "Year": 1960,
+    "TotalPopulation": "41.6030",
+    "GrowthRate": "0.0132",
+    "Density": "90.4413",
+    "TotalPopulationRank": 200,
+    "DensityRank": 65
+  },
+  {
+    "Year": 1955,
+    "TotalPopulation": "38.9550",
+    "GrowthRate": "0.0141",
+    "Density": "84.6848",
+    "TotalPopulationRank": 198,
+    "DensityRank": 63
+  }
+]

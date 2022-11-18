@@ -1,30 +1,38 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <base-nav-bar />
   <router-view />
 </template>
 
+<script setup>
+import BaseNavBar from "@/components/generic/BaseNavBar.vue";
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url(./fonts/Roboto/Roboto-Regular.ttf) format("truetype");
 }
 
-nav {
-  padding: 30px;
+@font-face {
+  font-family: "Roboto-Italic";
+  src: local("Roboto"), url(./fonts/Roboto/Roboto-Italic.ttf) format("truetype");
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+@font-face {
+  font-family: "Roboto-Bold";
+  src: local("Roboto"), url(./fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+@font-face {
+  font-family: "Roboto-Bold-Italic";
+  src: local("Roboto"),
+    url(./fonts/Roboto/Roboto-BoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: local("Lobster"),
+    url(./fonts/Lobster/Lobster-Regular.ttf) format("truetype");
 }
 </style>
