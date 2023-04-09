@@ -20,7 +20,7 @@ onMounted(() => {
     labels: props.labels,
     datasets: [
       {
-        label: `COVID19 Overview: Total confirmed cases upto ${props.titleDate}`,
+        label: "Population Overview",
         data: props.data,
         backgroundColor: ["#473879"],
         borderRadius: 3,

@@ -43,17 +43,10 @@ const route = useRoute();
 const router = useRouter();
 const buttonText = "Back to Country List";
 
-// let showMoreCurrencies = ref(false);
-// let showBorders = ref(false);
 let showCountry = ref(false);
 
-const currentCountry = computed(() => {
-  const c = store.getters.currentCountry;
-  console.log("viewcountry ", c);
-  return c;
-});
+const currentCountry = computed(() => store.getters.currentCountry);
 const currentPopulation = computed(() => store.getters.currentPopulation);
-// const getCountryByCode = computed(() => store.getters.getCountryByCode);
 const countryBorders = computed(() => {
   let borders = [];
   if (
@@ -62,22 +55,18 @@ const countryBorders = computed(() => {
     currentCountry.value.borders.length > 0
   ) {
     forEach(currentCountry.value.borders, (countryCode) => {
-      // ojo aca
       const border = store.getters.getCountryByCode(countryCode);
       if (border) {
         borders.push(border);
       }
-      //   borders.push(countryCode);
     });
   }
-  console.log("borders", borders);
   return borders;
 });
 
 onMounted(async () => {
   if (!currentCountry.value.name) {
     const alpha2Code = route.params.code;
-    console.log("code", alpha2Code);
     await store.dispatch("setCurrentCountry", alpha2Code);
     showCountry.value = true;
   } else {

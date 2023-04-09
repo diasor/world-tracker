@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import { find, forEach, map } from "lodash";
-import api from "@/api/countryApi";
+// import api from "@/api/countryApi";
 import countryList from "./data/countryList.json";
 import { getPreviousDay } from "@/utils/utils";
 
@@ -78,76 +78,71 @@ export default createStore({
   },
 
   actions: {
-    async fetchCountries({ state, commit }) {
-      if (state.countryList.length === 0) {
-        // const yesterday = getPreviousDay(new Date());
-        // const covidDate = yesterday.toISOString().split("T")[0];
-        // console.log("DATEA", covidDate);
+    async fetchCountries({ commit }) {
+      const countries = map(countryList, (iterCountry) => {
+        const currencies = [];
+        const noData = "No data available";
+        Object.values(iterCountry.currencies).forEach((entry) =>
+          currencies.push(entry)
+        );
+        return {
+          name: iterCountry.name.common,
+          officialName: iterCountry.name.official,
+          cca2: iterCountry.cca2,
+          capital: iterCountry.capital[0],
+          region: iterCountry.region ? iterCountry.region : noData,
+          subregion: iterCountry.subregion ? iterCountry.subregion : noData,
+          languages: { ...iterCountry.languages },
+          latlng: iterCountry.latlng,
+          borders: [...iterCountry.borders],
+          callingCodes: iterCountry.callingCodes[0],
+          currencies,
+          flag: iterCountry.flag,
+          cioc: iterCountry.cioc,
+        };
+      });
 
-        const countries = map(countryList, (iterCountry) => {
-          const currencies = [];
-          const noData = "No data available";
-          Object.values(iterCountry.currencies).forEach((entry) =>
-            currencies.push(entry)
-          );
-          return {
-            name: iterCountry.name.common,
-            officialName: iterCountry.name.official,
-            cca2: iterCountry.cca2,
-            capital: iterCountry.capital[0],
-            region: iterCountry.region ? iterCountry.region : noData,
-            subregion: iterCountry.subregion ? iterCountry.subregion : noData,
-            languages: { ...iterCountry.languages },
-            latlng: iterCountry.latlng,
-            borders: [...iterCountry.borders],
-            callingCodes: iterCountry.callingCodes[0],
-            currencies,
-            flag: iterCountry.flag,
-            cioc: iterCountry.cioc,
-          };
-        });
+      //   try {
+      // const response = await api.getCovidInfo();
+      // let covidDate = getFirstCovidDateAvailable(response);
+      const countriesWithCovidInformation = [];
+      forEach(countries, (iterCountry) => {
+        //   const iterName = mapCountryName(iterCountry.name);
+        //   let covidCountry = response.data[iterName];
 
-        try {
-          const response = await api.getCovidInfo();
-          let covidDate = getFirstCovidDateAvailable(response);
-          const countriesWithCovidInformation = [];
-          forEach(countries, (iterCountry) => {
-            const iterName = mapCountryName(iterCountry.name);
-            let covidCountry = response.data[iterName];
-
-            const noCovidData = covidCountry === undefined;
-            let countryYesterday = {};
-            if (covidCountry !== undefined) {
-              countryYesterday = find(
-                covidCountry,
-                (iter) => iter?.date === covidDate
-              );
-            }
-            // } else {
-            //   console.log("not found", iterCountry.name);
-            // }
-            const countryFull = {
-              todayConfirmed: noCovidData ? -1 : countryYesterday.confirmed,
-              todayConfirmedFormat: noCovidData
-                ? "No Data"
-                : countryYesterday.confirmed.toLocaleString(),
-              todayDeaths: noCovidData ? -1 : countryYesterday.deaths,
-              todayDeathsFormat: noCovidData
-                ? "No Data"
-                : countryYesterday.deaths.toLocaleString(),
-              ...iterCountry,
-            };
-            countriesWithCovidInformation.push(countryFull);
-          });
-          commit("SET_COUNTRY_LIST", countriesWithCovidInformation);
-          commit("SET_COVID_DATE", covidDate);
-          return countriesWithCovidInformation;
-        } catch (error) {
-          throw new Error(
-            "The COVID 19 data service has failed. Please try again later."
-          );
-        }
-      }
+        //   const noCovidData = covidCountry === undefined;
+        const noCovidData = true;
+        let countryYesterday = {};
+        //   if (covidCountry !== undefined) {
+        //     countryYesterday = find(
+        //       covidCountry,
+        //       (iter) => iter?.date === covidDate
+        //     );
+        //   }
+        // } else {
+        //   console.log("not found", iterCountry.name);
+        // }
+        const countryFull = {
+          todayConfirmed: noCovidData ? -1 : countryYesterday.confirmed,
+          todayConfirmedFormat: noCovidData
+            ? "No Data"
+            : countryYesterday.confirmed.toLocaleString(),
+          todayDeaths: noCovidData ? -1 : countryYesterday.deaths,
+          todayDeathsFormat: noCovidData
+            ? "No Data"
+            : countryYesterday.deaths.toLocaleString(),
+          ...iterCountry,
+        };
+        countriesWithCovidInformation.push(countryFull);
+      });
+      commit("SET_COUNTRY_LIST", countriesWithCovidInformation);
+      // commit("SET_COVID_DATE", covidDate);
+      return countriesWithCovidInformation;
+      //   } catch (error) {
+      //     throw new Error(
+      //       "The COVID 19 data service has failed. Please try again later."
+      //     );
+      //   }
     },
 
     async setCurrentCountry({ state, commit, dispatch }, code) {
@@ -155,13 +150,15 @@ export default createStore({
         await dispatch("fetchCountries");
       }
       const country = find(state.countryList, (item) => item.cca2 === code);
-      console.log("country", country);
-
       commit("SET_CURRENT_COUNTRY", country);
 
       const populationFileName = `./data/${country.cioc}.json`;
-      const countryPopulation = await import(`${populationFileName}`);
-      commit("SET_CURRENT_COUNTRY_POPULATION", countryPopulation);
+      try {
+        const countryPopulation = await import(`${populationFileName}`);
+        commit("SET_CURRENT_COUNTRY_POPULATION", countryPopulation);
+      } catch {
+        commit("SET_CURRENT_COUNTRY_POPULATION", []);
+      }
     },
 
     async generateMostInfected({ state, commit, dispatch }) {
@@ -186,11 +183,10 @@ function filterAndOrderInfected(countries) {
         : 0
     )
     .slice(0, 9);
-  console.log("====infected", countryList);
   return countryList;
 }
 
-function mapCountryName(name) {
+export function mapCountryName(name) {
   if (name === "French Southern and Antarctic Lands") {
     return "Antartica";
   }
@@ -209,7 +205,7 @@ function mapCountryName(name) {
   return name;
 }
 
-function getFirstCovidDateAvailable(covidData) {
+export function getFirstCovidDateAvailable(covidData) {
   let yesterday = getPreviousDay(new Date());
   let covidDate = yesterday.toISOString().split("T")[0];
   const covidCountry = covidData.data["Afghanistan"];

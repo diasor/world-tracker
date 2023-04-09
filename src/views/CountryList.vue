@@ -21,20 +21,6 @@
       @row-clicked="viewCountry"
       @filtered="onFiltered"
     >
-      <template v-slot:cell(todayConfirmed)="row">
-        <base-badge
-          class="mr-3 center"
-          :color="covidColor(row.item.todayConfirmed)"
-          :text="row.item.todayConfirmedFormat"
-        />
-      </template>
-      <template v-slot:cell(todayDeathsFormat)="row">
-        <base-badge
-          class="mr-3 center"
-          :color="covidColor(row.item.todayDeaths)"
-          :text="row.item.todayDeathsFormat"
-        />
-      </template>
     </b-table>
     <div class="d-flex justify-content-end">
       <b-pagination
@@ -67,8 +53,6 @@ import { ref, computed, onMounted } from "vue";
 import { filter } from "lodash";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import BaseBadge from "@/components/generic/BaseBadge.vue";
-import { getCovidColor } from "@/utils/utils.js";
 const store = useStore();
 const router = useRouter();
 
@@ -107,26 +91,10 @@ const fields = [
     label: "Phone prefix",
     sortable: false,
   },
-  {
-    key: "todayConfirmed",
-    label: "COVID Cases",
-    sortable: true,
-    sortDirection: "desc",
-  },
-  {
-    key: "todayDeathsFormat",
-    label: "COVID Deaths",
-    sortable: true,
-    sortDirection: "desc",
-  },
 ];
 let search = ref(null);
 let currentPage = ref(0);
 let perPage = ref(10);
-
-const covidColor = (covidNumber) => {
-  return getCovidColor(covidNumber);
-};
 
 // alerts
 let alertType = ref("success");
@@ -170,6 +138,7 @@ const loadTable = computed(
 onMounted(async () => {
   try {
     await store.dispatch("fetchCountries");
+    currentPage.value = 1;
   } catch (error) {
     alertMessage.value = error;
     showAlert.value = true;
