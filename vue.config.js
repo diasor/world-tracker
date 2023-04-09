@@ -1,5 +1,10 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
+  publicPath:
+    process.env.NODE_ENV === "production"
+      ? "/my-projects/covid19-tracker/"
+      : "/",
+  outputDir: "covid19-tracker",
   transpileDependencies: true,
   chainWebpack: (config) => {
     config.module

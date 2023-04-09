@@ -55,7 +55,7 @@ const chartData = computed(() => {
   const population = [];
   forEach(populationEntries, (entry) => {
     if (entry[1].TotalPopulation) {
-      const numericPopulation = replace(entry[1].TotalPopulation, ".", "");
+      const numericPopulation = replace(entry[1].TotalPopulation, ".", "") / 10;
       population.push(numericPopulation);
     }
   });

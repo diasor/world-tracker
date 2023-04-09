@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar px-4 d-flex justify-content-between">
     <div class="navbar__title d-flex">
-      <a @click="gotToHome">COVID 19 Tracker</a>
+      <a @click="gotToHome">Country tracker</a>
     </div>
     <div
       class="navbar__submenu d-flex justify-content-end align-items-center flex-grow-1"
@@ -28,7 +28,7 @@ const gotToAbout = () => {
   router.push({ name: "about" });
 };
 const gotToLastReview = () => {
-  window.open("https://github.com/diasor/geo-demo");
+  window.open("https://github.com/diasor/world-tracker/tree/master");
 };
 </script>
 

@@ -29,11 +29,9 @@ const showGraph = computed(() => infectedCountries.value.length > 0);
 const chartLabels = computed(() =>
   infectedCountries.value.map((country) => country.name)
 );
-const chartData = computed(() => {
-  const res = infectedCountries.value.map((country) => country.todayConfirmed);
-  console.log("chardata", res);
-  return res;
-});
+const chartData = computed(() =>
+  infectedCountries.value.map((country) => country.todayConfirmed)
+);
 
 onMounted(async () => {
   await store.dispatch("generateMostInfected");
