@@ -77,7 +77,7 @@ const countryCovidColor = (covidNumber) => {
 }
 </style>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .v-chip {
   max-height: 24px !important;
 }

@@ -1,7 +1,14 @@
 <template>
   <nav class="navbar px-4 d-flex justify-content-between">
-    <div class="navbar__title d-flex">
-      <a @click="gotToHome">Country tracker</a>
+    <div class="navbar__title d-flex align-items-center">
+      <b-img
+        src="./../../assets/flags-ring-2.png"
+        fluid
+        center
+        alt="Flags picture"
+        v-bind="mainProps"
+      />
+      <b-link @click="gotToHome" class="mx-2">Country tracker</b-link>
     </div>
     <div
       class="navbar__submenu d-flex justify-content-end align-items-center flex-grow-1"
@@ -17,6 +24,10 @@
 <script setup>
 import { useRouter } from "vue-router";
 
+const mainProps = {
+  width: 70,
+  height: 70,
+};
 const router = useRouter();
 const gotToHome = () => {
   router.push({ name: "covid19-tracker" });
